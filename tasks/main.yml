@@ -29,9 +29,9 @@
 - name: configure sysctl
   template: src=etc_sysctl.d_riak.conf.j2 dest=/etc/sysctl.d/riak.conf owner=root group=root mode=0644
 
-- name: copy custom beams
-  synchronize: src={{ riak_custom_beams_dir }} dest={{ riak_patch_dir }}
-  when: riak_custom_beams_dir is defined
+# - name: copy custom beams
+#   synchronize: src={{ riak_custom_beams_dir }} dest={{ riak_patch_dir }}
+#   when: riak_custom_beams_dir is defined
 
 - name: Check if this is first pass
   stat: path=/etc/riak/riak.conf.dist
